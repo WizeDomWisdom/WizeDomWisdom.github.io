@@ -1,5 +1,5 @@
 ---
-title: Wize Dom Wisdom.Github.Io
+title: WizeDom Wisdom.Github.Io
 timezone: UTC
 collections:
   posts:
@@ -10,3 +10,4 @@ collections:
     output: true
 Name: WizeDomWisom
 markdown: kramdown
+permalink: /blog/:year/:month/:day/:title
