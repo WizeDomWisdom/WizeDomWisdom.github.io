@@ -1,2 +1,0 @@
-# WizeDomWisdom.github.io
-WebSite
