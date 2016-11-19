@@ -1,0 +1,36 @@
+---
+layout: default
+---
+
+<div class="home">
+
+  <!-- Sticky articles  -->
+  <div class="right">
+    <h1 class="page-heading"><strong>Sicky Articles</strong></h1>
+     {% for post in site.posts %}      
+      {% if post.categories contains 'Sticky' %}
+	<li>
+	  <span class="post-meta">{{ post.date | date: "%b %-d, %Y" }}</span>
+	    <h2>
+	      <a class="post-link" href="{{ post.url | relative_url }}">{{ post.title | escape }}</a>
+	    </h2>
+	</li>
+      {% endif %}
+    {% endfor %}
+  </div>
+
+  <!-- Main articles  -->
+  <h1 class="page-heading"><strong>Articles</strong></h1>
+   <ul class="post-list">
+    {% for post in site.posts %}
+      <li>
+        <span class="post-meta">{{ post.date | date: "%b %-d, %Y" }}</span>
+        <h2>
+          <a class="post-link" href="{{ post.url | relative_url }}">{{ post.title | escape }}</a>
+        </h2>
+        {{ post.excerpt }}
+      </li>
+    {% endfor %}
+  </ul>
+
+</div>

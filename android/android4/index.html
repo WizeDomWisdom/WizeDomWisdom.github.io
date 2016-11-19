@@ -1,0 +1,16 @@
+---
+layout: default
+title: Motorola Droid 4, rooting and ROMs
+category: Android4
+---
+{% for post in site.posts %}      
+  {% if post.categories contains 'Android4' %}
+    <li>
+      <span class="post-meta">{{ post.date | date: "%b %-d, %Y" }}</span>
+        <h2>
+          <a class="post-link" href="{{ post.url | relative_url }}">{{ post.title | escape }}</a>
+        </h2>
+        {{ post.excerpt }}
+    </li>
+  {% endif %}
+{% endfor %}
