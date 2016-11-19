@@ -1,4 +1,0 @@
-markdown: rdiscount
-highlighter: pygments
-permalink: none
-exclude: ['Rakefile', 'README.textile', 'config.rb', 'CNAME']
