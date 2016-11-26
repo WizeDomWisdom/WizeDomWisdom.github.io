@@ -1,13 +1,13 @@
 <link rel="stylesheet" type="text/css" href="/assets/main.css"/>
 
-<!-- <div id="comments"> -->
-<div class="wrapper" style="margin-left:10px ">
+<!-- Comments -->
+<div id="share-box" style="margin:1px 10px 15px 12px">
 	{% case page.comment_count %}
 		{% when 0 %}
 		{% when 1 %}
 			<h1>1 Comment</h1>
 		{% else %}
-			<h1 class="page-heading">{{page.comment_count}}<strong>Comments</strong></h1>
+			<h1 >{{page.comment_count}} Comments</h1>
 	{% endcase %}
 	{% for c in page.comments %}
 		<div class="comment {% cycle 'odd', 'even' %}">
@@ -25,32 +25,43 @@
 			</p>
 		</div>
 	{% endfor %}
-	<h1 class="page-heading">Post a comment</h1>
+	<h1 class="page-heading"><strong>Post a comment</strong></h1>
 	<p style="font-style: italic">
 		All comments are held for moderation; basic HTML formatting accepted.
 	</p>
-	<form id="commentform" method="POST" action="{{site.url}}/CommentsHandling/commentsubmit.php">
-		<input type="hidden" name="post_id" value="{{page.id}}" />
-		<input type="hidden" name="return_url" value="{{site.url}}{{page.url}}" />
-		<table>
-			<tr>
-				<th>Name:</th>
-				<td><input type="text" size="25" name="name" /> (required)</td>
-			</tr>
-			<tr>
-				<th>E-mail:</th>
-				<td><input type="text" size="25" name="email" /> (required, not published)</td>
-			</tr>
-			<tr>
-				<th>Website:</th>
-				<td><input type="text" size="25" name="link" /> (optional)</td>
-			</tr>
-			<tr>
-				<td colspan="2"><textarea name="comment" rows="5" cols="73" ></textarea></td>
-			</tr>
-			<tr>
-				<td><input type="submit" name="submit" value=" Submit Comment " /></td>
-			</tr>
-		</table>
+
+	
+	<div class="container">
+
+	<form class="form-horizontal"method="POST" action="{{site.url}}/CommentsHandling/commentsubmit.php">
+	  <input type="hidden" name="post_id" value="{{page.id}}" />
+	  <input type="hidden" name="return_url" value="{{site.url}}{{page.url}}" />
+  
+	  <div class="form-group">
+	    <label class="col-xs-2 col-md-1" for="name">Name:</label>
+	      <div class="col-xs-12 col-md-3">          
+		<input type="text" class="form-control" id="name" placeholder="(Required)">
+	      </div>
+	  </div> 
+  
+	  <div class="form-group">
+	    <label class="col-xs-2 col-md-1" for="email">Email address:</label>
+	      <div class="col-xs-12 col-md-3">
+		<input type="email" class="form-control" id="email" placeholder="(Required but not published)">
+	      </div>
+	  </div>
+  
+	  <div class="form-group">
+	    <label class="col-xs-2 col-md-1" for="comment">Comment:</label> 
+	      <div class="col-xs-12 col-md-5 input-lg-4">
+		<textarea class="form-control" id="exampleTextarea" rows="3" placeholder="Enter your comment"></textarea>
+	      </div>
+	  </div>
+    
+	  <div class="form-group">        
+	    <div class="col-xs-3 col-md-2">
+	      <button type="submit" class="btn btn-default">Submit your comment</button>
+	    </div>
+	  </div>
 	</form>
 </div>
