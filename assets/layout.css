@@ -27,3 +27,10 @@ height:100%;
   margin-bottom:200px;
   min-height:100%;
  }
+.bottom {
+  padding-top:20px;
+  padding-bottom:20px;  
+  margin-right:25px;
+  min-width:200px;  
+  padding-left:20%;
+}
