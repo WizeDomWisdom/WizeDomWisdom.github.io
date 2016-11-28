@@ -2,67 +2,23 @@
 <link rel="stylesheet" type="text/css" href="/assets/buttons.css"/>
 
 <!-- Comments -->
-<div id="share-box" style="margin:1px 10px 15px 12px">
-	{% case page.comment_count %}
-		{% when 0 %}
-		{% when 1 %}
-			<h1>1 Comment</h1>
-		{% else %}
-			<h1 class="page-heading">{{page.comment_count}} <strong>Comments</strong></h1>
-	{% endcase %}
-	{% for c in page.comments %}
-		<div class="comment {% cycle 'odd', 'even' %}">
-			<p class="comment_header">
-				From: {% if c.link and c.link != '' %}
-					<a href="{{c.link}}">{{c.name}}</a>
-				{% else %}
-					{{c.name}}
-				{% endif %}
-				<br />
-				<span class="comment_date">{{c.date}}</span>
-			</p>
-			<p>
-				{{c.comment | newline_to_br}}
-			</p>
-		</div>
-	{% endfor %}
-	<h1 class="page-heading"><strong>Post a comment</strong></h1>
-	<p style="font-style: italic">
-		All comments are held for moderation; basic HTML formatting accepted.
-	</p>
+<div id="disqus_thread"></div>
+<script>
 
-	
-	<div class="container">
-
-	<form class="form-horizontal"method="POST" action="{{site.url}}/CommentsHandling/commentsubmit.php">
-	  <input type="hidden" name="post_id" value="{{page.id}}" />
-	  <input type="hidden" name="return_url" value="{{site.url}}{{page.url}}" />
-  
-	  <div class="form-group">
-	    <label class="col-xs-2 col-md-1" for="name">Name:</label>
-	      <div class="col-xs-12 col-md-3">          
-		<input type="text" class="form-control" id="name" placeholder="(Required)">
-	      </div>
-	  </div> 
-  
-	  <div class="form-group">
-	    <label class="col-xs-2 col-md-1" for="email">Email address:</label>
-	      <div class="col-xs-12 col-md-3">
-		<input type="email" class="form-control" id="email" placeholder="(Required but not published)">
-	      </div>
-	  </div>
-  
-	  <div class="form-group">
-	    <label class="col-xs-2 col-md-1" for="comment">Comment:</label> 
-	      <div class="col-xs-12 col-md-5 input-lg-4">
-		<textarea class="form-control" id="exampleTextarea" rows="3" placeholder="Enter your comment"></textarea>
-	      </div>
-	  </div>
-    
-	  <div class="form-group">        
-	    <div class="col-xs-3 col-md-2">
-	      <button type="submit" class="fa button"> Submit your comment </button>
-	    </div>
-	  </div>
-	</form>
-</div>
+/**
+*  RECOMMENDED CONFIGURATION VARIABLES: EDIT AND UNCOMMENT THE SECTION BELOW TO INSERT DYNAMIC VALUES FROM YOUR PLATFORM OR CMS.
+*  LEARN WHY DEFINING THESE VARIABLES IS IMPORTANT: https://disqus.com/admin/universalcode/#configuration-variables*/
+/*
+var disqus_config = function () {
+this.page.url = PAGE_URL;  // Replace PAGE_URL with your page's canonical URL variable
+this.page.identifier = PAGE_IDENTIFIER; // Replace PAGE_IDENTIFIER with your page's unique identifier variable
+};
+*/
+(function() { // DON'T EDIT BELOW THIS LINE
+var d = document, s = d.createElement('script');
+s.src = '//wizedomwisdom-github-io.disqus.com/embed.js';
+s.setAttribute('data-timestamp', +new Date());
+(d.head || d.body).appendChild(s);
+})();
+</script>
+<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
